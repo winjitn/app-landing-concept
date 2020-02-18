@@ -67,12 +67,6 @@ const body = () => {
     return (
       <Grid key={content.title1}>
         {i % 2 === 0 ? [imgctn, textctn] : [textctn, imgctn]}
-        {/* <Grid.Column mobile={16} computer={8} tablet={8}>
-          {i % 2 === 0 ? imgctn : textctn}
-        </Grid.Column>
-        <Grid.Column mobile={16} computer={8} tablet={8}>
-          {i % 2 === 0 ? textctn : imgctn}
-        </Grid.Column> */}
       </Grid>
     )
   })
