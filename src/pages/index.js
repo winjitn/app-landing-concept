@@ -48,7 +48,7 @@ const body = () => {
       </>
     )
     const imgctn = (
-      <Grid.Column mobile={16} computer={8} tablet={8}>
+      <Grid.Column key={content.img} mobile={16} computer={8} tablet={8}>
         <div className="body-item">
           <img
             src={require("../images/" + content.img)}
@@ -60,7 +60,7 @@ const body = () => {
       </Grid.Column>
     )
     const textctn = (
-      <Grid.Column mobile={16} computer={8} tablet={8}>
+      <Grid.Column key={content.icon} mobile={16} computer={8} tablet={8}>
         <div className="body-item-text collapse">{textinner}</div>
       </Grid.Column>
     )
@@ -71,9 +71,17 @@ const body = () => {
     )
   })
 }
-
+var count = 0
+const load = () => {
+  count++
+  if (count >= 12) {
+    requestAnimationFrame(() => {
+      document.querySelector("#main-ctn").style.opacity = "1"
+    })
+  }
+}
 const IndexPage = () => (
-  <div>
+  <div id="main-ctn" onLoad={() => load()}>
     <SEO title="Home" />
     <div id="banner-ctn">
       <div id="banner-inner-ctn" className="ui container">
@@ -103,6 +111,7 @@ const IndexPage = () => (
                   width="35px"
                   height="35px"
                   className="btn-logo"
+                  alt="logo"
                 />
                 <div className="download-btn-text">
                   <div className="small black">Download in the</div>
@@ -115,6 +124,7 @@ const IndexPage = () => (
                   width="35px"
                   height="35px"
                   className="btn-logo"
+                  alt="logo"
                 />
                 <div className="download-btn-text">
                   <div className="small">Get it on</div>
@@ -123,7 +133,11 @@ const IndexPage = () => (
               </div>
             </div>
           </div>
-          <img id="banner-img" src={require("../images/appdummy.png")} />
+          <img
+            id="banner-img"
+            alt="banner"
+            src={require("../images/appdummy.png")}
+          />
         </div>
       </div>
     </div>
