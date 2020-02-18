@@ -9,7 +9,7 @@ body {
 
 #main-ctn {
   opacity: 0;
-  transition: opacity 0.7s;
+  transition: opacity 1s;
 }
 
 .ui.grid,

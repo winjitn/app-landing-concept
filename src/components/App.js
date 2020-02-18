@@ -73,18 +73,19 @@ const body = () => {
 }
 
 class App extends React.Component {
-  count = 0
   ctn = React.createRef()
 
-  load() {
-    this.count++
-    if (this.count >= 10) {
-      this.ctn.current.style.opacity = "1"
-    }
+  componentDidMount() {
+    const obj = this
+    this.ctn.current.style.transition = "opacity 1s"
+    setTimeout(() => {
+      obj.ctn.current.style.opacity = "1"
+    }, 500)
   }
+
   render() {
     return (
-      <div ref={this.ctn} id="main-ctn" onLoad={() => this.load()}>
+      <div ref={this.ctn} id="main-ctn">
         <SEO title="Home" />
         <div id="banner-ctn">
           <div id="banner-inner-ctn" className="ui container">
